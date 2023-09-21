@@ -13,7 +13,11 @@
     <div class="images">
 
       <div class="img" *ngFor="let image of images">
-        <span>{{image.vehicalNumber}}</span>
+        
+        <div class="header">
+          <span>{{image.vehicalNumber}}</span>
+          <span>Delete</span>
+        </div>
         <img [src]="image.vehicalImage" width="250">
       </div>
       
