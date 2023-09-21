@@ -1,0 +1,49 @@
+<div class="container">
+
+  <div class="vehicalDetails">
+
+    <ag-grid-angular
+      #agGrid
+      style="width: 100%; height: 400px;"
+      class="ag-theme-alpine"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs">
+    </ag-grid-angular>
+
+    <div class="images">
+
+      <div class="img" *ngFor="let image of images">
+        <span>{{image.vehicalNumber}}</span>
+        <img [src]="image.vehicalImage" width="250">
+      </div>
+      
+    </div>
+
+  </div> 
+
+  <div class="manageVehical"> 
+
+    <h1>Add a New Vehicle</h1>
+
+    <form id="addVehicleForm" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+
+      <label for="userID">User ID:</label>
+      <input type="text" id="userID" name="userID" formControlName="userID" required><br>
+
+      <label for="vehicleName">Vehicle Name:</label>
+      <input type="text" id="vehicleName" name="vehicleName" formControlName="vehicleName" required><br>
+
+      <label for="contact">Contact:</label>
+      <input type="number" id="contact" name="contact" formControlName="contact" required><br>
+
+      <label for="vehicleNumber">Vehicle Number:</label>
+      <input type="text" id="vehicleNumber" name="vehicleNumber" formControlName="vehicleNumber" required><br>
+
+      <input type="file" (change)="onFileSelected($event)" accept="image/*">
+
+        <button type="submit">Add Vehicle</button>
+    </form>
+
+  </div>
+
+</div>
